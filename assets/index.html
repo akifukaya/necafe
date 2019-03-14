@@ -17,24 +17,51 @@
   <!-- faviconの読み込み -->
   <link rel="icon" href="../html/images/favicon.ico">
 </head>
-<body>
+<body id="page_index">
 <div id="wrap">
-  <header>
-    <h1>miao's cafe</h1>
+  <header id="header">
+    <div class="i_header">
+      <div class="left-block">
+        <div class="left-block__navarea">
+          <div class="left-block__logo">
+            <a href="index.html">
+              <img src="images/logo.png" alt="logo">
+            </a>
+          </div>
     <nav>
-      <ul>
-        <li><a href="">home</a></li>
-        <li><a href="">about</a></li>
-        <li><a href="">cafe</a></li>
-        <li><a href="">access</a></li>
-        <li><a href="">contact</a></li>
+      <ul class="left-block__nav">
+        <li><a href="concept.html">
+          <span class="en">CONCEPT</span>
+          <span class="ja">こだわり</span>
+        </a></li>
+        <li><a href="news.html">
+          <span class="en">NEWS</span>
+          <span class="ja">お知らせ</span>
+        </a></li>
+        <li><a href="cafe.html">
+          <span class="en">CAFE</span>
+          <span class="ja">カフェ</span>
+        </a></li>
+        <li><a href="info.html">
+          <span class="en">SHOP INFO</span>
+          <span class="ja">店舗情報</span>
+        </a></li>
+        <li><a href="contact.html">
+          <span class="en">CONTACT</span>
+          <span class="ja">お問い合わせ</span>
+        </a></li>
       </ul>
     </nav>
-    <ul>
-      <li><a href=""><i class="fa fa-instagram fa-lg"></i></a></li>
-      <li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
+    <ul class="left-block__sns">
+      <li>
+        <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+      </li>
     </ul>
-  </header>
+        </div>
+      </div>
   <div id="hero">
     <div class="slideshow">
       <img src="images/kiji.png" alt="kiji">
@@ -43,6 +70,8 @@
   <div class="scroll">
     <p>scroll</p>
   </div>
+    </div>
+  </header>
   <footer>
     <p>
       <small>&copy; 2019 miao's cafe</small>
