@@ -8,6 +8,11 @@ $base_color: #d1d3b8;
 $sub_color: #21302d;
 $accent_color: #af5e62;
 
+// mixin定義
+@mixin img {
+  width: 100%;
+  height: auto;
+}
 html {
   box-sizing: border-box;
   width: 100vw;
@@ -78,9 +83,8 @@ a {
       opacity: 0.7;
     }
   }
-  &__logo img {
-    max-width: 100%;
-    height: auto;
+  &__logo .img {
+    @include img;
   }
 
   &__nav {
@@ -136,6 +140,18 @@ a {
   }
 }
 
+.slider-wrap {
+  width: calc(100% - 240px);
+  height: calc(100vh - 100px);
+  margin: 80px 0 0 60px;
+  & h1 {
+    text-indent: -999px;
+  }
+}
+.slideshow {
+  width: 700px;
+  height: 400px;
+}
 
 // *****************************************
 // top
