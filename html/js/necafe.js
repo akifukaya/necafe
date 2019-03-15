@@ -1,15 +1,15 @@
 // Vegas slide
 $(function() {
-  $('.slideshow').vegas({
+  $('#mainvisual').vegas({
     slides: [
-    {src: 'images/cat01.png'},
-    {src: 'images/cat02.png'},
-    {src: 'images/cat03.png'},
-    {src: 'images/cat04.png'},
-    {src: 'images/cat05.png'}
+    {src: 'images/slide01.png'},
+    {src: 'images/slide02.png'},
+    {src: 'images/slide03.png'},
+    {src: 'images/slide04.png'},
+    {src: 'images/slide05.png'}
     ],
-    delay: 5000,
-    timer: true,
+    delay: 7000,
+    timer: false,
     overlay: 'images/02.png',
     animation: 'kenburns',
     transition: 'blur',
