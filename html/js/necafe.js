@@ -8,7 +8,7 @@ $(function() {
     {src: 'images/slide04.png'},
     {src: 'images/slide05.png'}
     ],
-    delay: 7000,
+    delay: 8000,
     timer: false,
     overlay: 'images/02.png',
     animation: 'kenburns',

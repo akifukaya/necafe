@@ -1,8 +1,5 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption|Sigmar+One');
-
-// font-family: 'PT Sans Caption', sans-serif;
-// // font-family: 'Sigmar One', cursive;
 // 色指定
 $base_color: #d1d3b8;
 $sub_color: #21302d;
@@ -13,6 +10,23 @@ $accent_color: #af5e62;
   width: 100%;
   height: auto;
 }
+@mixin font {
+  font-family: 'PT Sans Caption', sans-serif;
+}
+@mixin box {
+  width: 900px;
+  padding: 0;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 50px;
+}
+@mixin bl {
+  border-left: 5px solid $accent_color;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
 html {
   box-sizing: border-box;
   width: 100vw;
@@ -68,6 +82,7 @@ a {
     position: relative;
     display: flex;
     border-left: 15px solid $accent_color;
+    border-bottom-right-radius: 50px;
   }
 
   &__logo {
@@ -108,7 +123,7 @@ a {
     cursor: pointer;
   }
   &__nav .en {
-    font-family: 'PT Sans Caption', sans-serif;
+    @include font;
     font-size: 1.2rem;
     font-weight: bold;
     letter-spacing: 0.18em;
@@ -151,6 +166,7 @@ a {
 .slideshow {
   width: 100%;
   height: 600px;
+  border-radius: 50px 0 0 50px;
 }
 .slideshow-text {
   font-size: 1.4rem;
@@ -160,22 +176,89 @@ a {
   left: 18px;
   &__right {
     background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
     padding: 10px;
     line-height: 3.4;
     letter-spacing: 0.54em;
   }
   &__left {
     background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
     padding: 10px;
     line-height: 3.4;
     letter-spacing: 0.54em;
     margin-top: 50px;
   }
 }
-
+.scroll {
+  text-align: center;
+  padding-top: 27px;
+  margin: 0;
+}
+.scroll .a {
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin: 30px auto;
+  border-left: 1px solid $sub_color;
+  border-bottom: 1px solid $sub_color;
+  transform: rotate(-45deg);
+  animation: sc 1.5s infinite;
+}
+@keyframes sc {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
 // *****************************************
 // top
 // *****************************************
+#contents-index {
+  padding-bottom: 10px;
+  background-color: $base_color;
+}
+.contents {
+  padding: 80px 0 0 ;
+  margin: 0 auto;
+  font-size: 1.4rem;
+  line-height: 1.8;
+}
+.news-area {
+  padding: 10px 0 0;
+  &__box {
+    @include box;
+    & h2 {
+      @include font;
+      @include bl;
+      width: 100px;
+      font-size: 2.5rem;
+    }
+  }
+  &__news {
+    width: 90%;
+  }
+  &__news dt {
+    width: 120px;
+    float: left;
+    min-height: 12px;
+    height: auto;
+    padding: 0 0 0 17px;
+    background: transparent url('images/news.png') no-repeat 0em 0.3em scroll;
+  }
+  &__news dd {
+    padding: 0 0 0 137px;
+    margin: 0 0 10px 0;
+    border-bottom: dashed 1px #222;
+  }
+}
 // *****************************************
 // news
 // *****************************************
@@ -185,3 +268,100 @@ a {
 // *****************************************
 // contact
 // *****************************************
+// *****************************************
+// footer
+// *****************************************
+footer {
+  padding: 0;
+  margin: 0;
+}
+.footer {
+  padding: 40px 140px 0;
+  background-color: $sub_color;
+  border-left: 15px solid $accent_color;
+  border-top-right-radius: 50px;
+}
+.footer-block {
+  display: flex;
+  justify-content: space-between;
+  &__logo {
+    width: 150px;
+  }
+  &__logo a {
+    display: block;
+    &:hover {
+    transition: 3s;
+    opacity: 0.7;
+    }
+  }
+  &__logo img {
+    @include img;
+  }
+
+  &__right {
+    padding: 0 0 0 45px;
+    &__nav {
+      width: 530px;
+      display: flex;
+      justify-content: flex-end;
+      &__ul {
+        width: 530px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        margin: 0;
+      }
+      &__ul li {
+        width: 130px;
+        margin: 14px 0 0;
+        line-height: 1.0;
+      }
+      &__ul li a {
+        color: #fff;
+        @include font;
+        font-size: 1.2rem;
+        font-weight: bold;
+        letter-spacing: 0.18em;
+      }
+    }
+
+    &__other {
+      width: 530px;
+      display: flex;
+      justify-content: flex-end;
+    }
+    &__other ul {
+      width: 460px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      margin-bottom: 0;
+    }
+    &__other ul li {
+      width: 140px;
+      margin: 14px 20px 0 0 ;
+      line-height: 1.0;
+    }
+    &__other ul li a {
+      color: #fff;
+      @include font;
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: 0.18em;
+    }
+    &__other .sns {
+      width: 70px;
+      display: flex;
+    }
+    &__other .sns li {
+      text-align: right;
+    }
+  }
+}
+
+.copy {
+  color: #fff;
+  text-align: center;
+  margin: 50px 0 0 0;
+  letter-spacing: 0.34em;
+}
