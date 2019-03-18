@@ -15,7 +15,7 @@ $accent_color: #af5e62;
 }
 @mixin box {
   width: 900px;
-  padding: 0;
+  padding: 0 0 10px 0;
   margin: 0 auto;
   background-color: #fff;
   border-radius: 50px;
@@ -24,6 +24,7 @@ $accent_color: #af5e62;
   border-left: 5px solid $accent_color;
   text-align: center;
   margin: 0 auto;
+  font-size: 2.5rem;
 }
 
 
@@ -37,7 +38,7 @@ body {
   width: 100vw;
   height: 100vh;
   min-width: 1020px;
-  font-family: '游ゴシック体', 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシックPro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳＰゴシック', 'MS PGothic', sans-serif;
+  font-family: 'PT Sans Caption', '游ゴシック体', 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシックPro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳＰゴシック', 'MS PGothic', sans-serif;
   color: $sub_color;
   font-size: 1.4rem;
   line-height: 1.8;
@@ -233,30 +234,279 @@ a {
 }
 .news-area {
   padding: 10px 0 0;
+  margin-bottom: 100px;
   &__box {
     @include box;
     & h2 {
-      @include font;
       @include bl;
       width: 100px;
       font-size: 2.5rem;
     }
   }
   &__news {
-    width: 90%;
+    width: 50%;
+    margin: 0 auto;
   }
   &__news dt {
-    width: 120px;
+    width: 145px;
     float: left;
     min-height: 12px;
     height: auto;
     padding: 0 0 0 17px;
-    background: transparent url('images/news.png') no-repeat 0em 0.3em scroll;
+    vertical-align: middle;
+  }
+  &__news dt::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url(../images/news.png) 0 0 no-repeat/contain;
   }
   &__news dd {
-    padding: 0 0 0 137px;
+    padding: 5px 0 5px 200px;
     margin: 0 0 10px 0;
-    border-bottom: dashed 1px #222;
+    border-bottom: dotted 0.5px #ddd;
+  }
+  & .news-more {
+    width: 100px;
+    background-color: $accent_color;
+    border-radius: 50px;
+    margin: 30px auto 10px;
+    & p {
+      text-align: center;
+    }
+    & a {
+      color: #fff;
+    }
+  }
+}
+
+.cafe-area {
+  @include box;
+  height: 600px;
+  margin-bottom: 100px;
+  position: relative;
+  & h2 {
+    width: 100px;
+    font-size: 2.5rem;
+    @include bl;
+  }
+   &__left {
+    width: 600px;
+    height: 400px;
+    border-radius: 50px;
+    background-color: $sub_color;
+    margin: 20px;
+    position: absolute;
+    top: 60px;
+    left: -65px;
+    z-index: 1;
+    & .left-text {
+      width: 400px;
+      margin: 80px 60px;
+      color: #fff;
+    }
+    & .cafe-more {
+      width: 100px;
+      background-color: $accent_color;
+      border-radius: 50px;
+      margin: 30px auto 10px;
+      & p {
+        text-align: center;
+      }
+      & a {
+        color: #fff;
+      }
+    }
+  }
+   &__right {
+    width: 60%;
+    position: absolute;
+    top: 190px;
+    right: -60px;
+    z-index: 2;
+    & img {
+      @include img;
+      border-radius: 50px;
+    }
+   }
+}
+.cat-area {
+  @include box;
+  position: relative;
+  margin-bottom: 100px;
+  &__box {
+    width: 900px;
+    padding: 0;
+    margin: 0 auto;
+    & h2 {
+      width: 100px;
+      @include bl;
+    }
+    &__img {
+      display: flex;
+      margin-top: 20px;
+      & .left-cat {
+        width: 60%;
+        &__top {
+          margin: 10px;
+          position: relative;
+        }
+        &__top .img {
+          @include img;
+          border-radius: 30px;
+        }
+        &__bottom {
+          display: flex;
+          &__left {
+            width: 50%;
+            margin: 10px;
+            position: relative;
+            & .img {
+              @include img;
+              border-radius: 30px;
+            }
+          }
+          &__right {
+            width: 50%;
+            margin: 10px;
+            position: relative;
+            & .img {
+              @include img;
+              border-radius: 30px;
+            }
+          }
+        }
+      }
+      & .right-cat {
+        width: 40%;
+        &__top {
+          margin: 10px;
+          display: flex;
+          &__left {
+            width: 50%;
+            margin: 10px;
+            & .img {
+              @include img;
+              border-radius: 30px;
+            }
+          }
+          &__right {
+            width: 50%;
+            margin: 10px;
+            & .img {
+              @include img;
+              border-radius: 30px;
+            }
+          }
+        }
+        &__bottom {
+          width: 60%;
+          margin: 25px 50px;
+          position: relative;
+          & .img {
+            @include img;
+            border-radius: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+.cat-more {
+  width: 100px;
+  height: 100px;
+  background-color: $accent_color;
+  border-radius: 50px;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  & p {
+    text-align: center;
+    padding-top: 25px;
+  }
+  & a {
+    display: block;
+    height: 100px;
+    color: #fff;
+  }
+}
+
+.sitter-area {
+  @include box;
+  height: 600px;
+  margin-bottom: 100px;
+  position: relative;
+  & h2 {
+    width: 270px;
+    @include bl;
+  }
+   &__left {
+    width: 600px;
+    height: 400px;
+    border-radius: 50px;
+    background-color: $sub_color;
+    margin: 20px;
+    position: absolute;
+    top: 150px;
+    left: -65px;
+    z-index: 1;
+    & .left-text {
+      width: 400px;
+      margin: 80px 60px;
+      color: #fff;
+    }
+    & .sitter-more {
+      width: 100px;
+      background-color: $accent_color;
+      border-radius: 50px;
+      margin: 30px auto 10px;
+      & p {
+        text-align: center;
+      }
+      & a {
+        color: #fff;
+      }
+    }
+  }
+   &__right {
+    width: 60%;
+    position: absolute;
+    top: 80px;
+    right: -60px;
+    z-index: 2;
+    & img {
+      @include img;
+      border-radius: 50px;
+    }
+   }
+}
+.info-area {
+  @include box;
+  margin-bottom: 100px;
+  &__box h2 {
+    @include bl;
+    width: 170px;
+  }
+  &__wrap {
+    display: flex;
+    justify-content: center;
+    &__left {
+      width: 50%;
+      margin: 30px;
+      & .img {
+        @include img;
+        border-radius: 30px;
+      }
+    }
+    &__right {
+      width: 50%;
+      margin: 30px;
+      & .info-box {
+        padding: 15px;
+        border-left: double 10px $accent_color;
+      }
+    }
   }
 }
 // *****************************************
