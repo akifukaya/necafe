@@ -123,6 +123,9 @@ a {
     line-height: 1.0;
     display: block;
     cursor: pointer;
+    &:hover {
+      color: $accent_color;
+    }
   }
   &__nav .en {
     @include font;
@@ -153,6 +156,9 @@ a {
   }
   &__sns a {
     color: #fff;
+  }
+  &__sns a:hover {
+    color: $accent_color;
   }
 }
 
@@ -254,7 +260,7 @@ a {
     float: left;
     min-height: 12px;
     height: auto;
-    padding: 0 0 0 17px;
+    padding: 0 0 0 5px;
     vertical-align: middle;
   }
   &__news dt::before {
@@ -262,6 +268,7 @@ a {
     display: inline-block;
     width: 40px;
     height: 40px;
+    margin-right: 12px;
     background: url(../images/news.png) 0 0 no-repeat/contain;
   }
   &__news dd {
@@ -275,27 +282,37 @@ a {
     border-radius: 50px;
     margin: 30px auto 10px;
     position: relative;
-    &:after {
-      content: "";
-      position: absolute;
-      right: 0;
-      bottom: 20px;
-      left: 0;
-      width: 0;
-      height: 0;
-      margin: auto;
-      border-style: solid;
-      border-color: transparent $accent_color transparent $accent_color;
-      border-width: 20px 25px 0 25px;
-    }
     & p {
       text-align: center;
     }
     & a {
+      display: block;
       color: #fff;
     }
   }
 }
+// moreボタン共通(cat's以外)
+.btn {
+      position: relative;
+      transform: translateZ(0);
+      box-shadow: 0 0 1px rgba(0,0,0,0);
+      &:before {
+        pointer-events: none;
+        position: absolute;
+        z-index: -1;
+        content: '';
+        border-style: solid;
+        transition-duration: .5s;
+        left: 25px;
+        border-width: 15px 25px 10px 25px;
+        border-color: transparent $accent_color $accent_color $accent_color;
+        transition-property: top;
+      }
+      &:hover:before {
+        top: -12px;
+      }
+}
+// ここまで
 .cafe-area {
   @include box;
   height: 600px;
@@ -331,6 +348,7 @@ a {
       }
       & a {
         color: #fff;
+        display: block;
       }
     }
   }
@@ -491,11 +509,30 @@ a {
   }
   & a {
     display: block;
-    height: 100px;
+    height: 50px;
     color: #fff;
   }
 }
-
+.c-btn {
+      position: relative;
+      transform: translateZ(0);
+      box-shadow: 0 0 1px rgba(0,0,0,0);
+      &:before {
+        pointer-events: none;
+        position: absolute;
+        z-index: -1;
+        content: '';
+        border-style: solid;
+        transition-duration: .5s;
+        left: 25px;
+        border-width: 15px 25px 10px 25px;
+        border-color: transparent $accent_color $accent_color $accent_color;
+        transition-property: top;
+      }
+      &:hover:before {
+        top: -47px;
+      }
+}
 .sitter-area {
   @include box;
   height: 600px;
@@ -530,6 +567,7 @@ a {
       }
       & a {
         color: #fff;
+        display: block;
       }
     }
   }
@@ -655,6 +693,9 @@ footer {
         font-size: 1.2rem;
         font-weight: bold;
         letter-spacing: 0.18em;
+        &:hover {
+          color: $accent_color;
+        }
       }
     }
 
@@ -681,6 +722,9 @@ footer {
       font-size: 1.2rem;
       font-weight: bold;
       letter-spacing: 0.18em;
+      &:hover {
+        color: $accent_color;
+      }
     }
     &__other .sns {
       width: 70px;
@@ -688,6 +732,12 @@ footer {
     }
     &__other .sns li {
       text-align: right;
+      & a {
+        display: block;
+        &:hover {
+          color: $accent_color;
+        }
+      }
     }
   }
 }
