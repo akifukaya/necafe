@@ -43,3 +43,20 @@ $(function() {
         return false;
     });
 });
+// top スクロールでbox表示
+var tgt = $('.ef');
+$(window).on('load scroll', function() {
+    var wh = $(window).height();
+    var sc = $(window).scrollTop();
+
+    var action = function() {
+        tgt.each(function() {
+            var border =
+    $(this).offset().top;
+            if(sc > border - wh +100) {
+                $(this).addClass('is_visible');
+            }
+        });
+    };
+    action();
+});
