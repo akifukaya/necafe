@@ -60,3 +60,18 @@ $(window).on('load scroll', function() {
     };
     action();
 });
+// cat'sスクロールで順番にフェードイン
+$(document).ready(function() {
+    var EffectTime = 500;
+    var DelayTime = 500;
+    $('.cat-area__box__img img').css({'opacity': 0});
+    $(window).on('scroll load', function() {
+        var scMiddle = $(this).scrollTop() + $(this).height() / 1;
+        var listPos = $('.cat-area__box__img').offset().top;
+        if (listPos < scMiddle) {
+            $('.cat-area__box__img img').each(function(index) {
+                $(this).delay(DelayTime * index).animate({'opacity': 1}, EffectTime);
+            });
+        }
+    });
+});

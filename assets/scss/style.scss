@@ -415,6 +415,7 @@ a {
 
 .cat-area {
   @include box;
+  height: 511px;
   position: relative;
   margin-bottom: 100px;
   &__box {
