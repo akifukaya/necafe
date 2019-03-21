@@ -27,7 +27,23 @@ $accent_color: #af5e62;
   margin: 0 auto;
   font-size: 2.5rem;
 }
-
+@mixin mask {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255,255,255,0.3);
+  opacity: 0;
+  color: #222;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  margin: 0;
+  border-radius: 30px;
+}
 
 html {
   box-sizing: border-box;
@@ -60,7 +76,7 @@ a {
 // *****************************************
 // top-header
 // *****************************************
-#page_index #header {
+#page_index #header_index {
   background-color: $base_color;
   height: 100vh;
   position: static;
@@ -165,17 +181,19 @@ a {
 .slider-wrap {
   width: calc(100% - 240px);
   height: calc(100vh - 100px);
-  margin: 30px 0 0 60px;
+  margin: 20px 0 0 60px;
   position: relative;
   & h1 {
     text-indent: -999px;
+    height: 0;
   }
 }
 .slideshow {
   width: 100%;
-  height: 600px;
+  height: 80vh;
   border-radius: 50px 0 0 50px;
   border: 10px solid $sub_color;
+  z-index: 2;
 }
 .slideshow-text {
   font-size: 1.4rem;
@@ -201,7 +219,6 @@ a {
 }
 .scroll {
   text-align: center;
-  padding-top: 27px;
   margin: 0;
 }
 .scroll .a {
@@ -225,6 +242,11 @@ a {
   100% {
     transform: rotate(-45deg) translate(-20px, 20px);
     opacity: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  .scroll {
+    display: none;
   }
 }
 // *****************************************
@@ -429,15 +451,23 @@ a {
     &__img {
       display: flex;
       margin-top: 20px;
+      & .img {
+        @include img;
+        border-radius: 30px;
+      }
+      & .mask {
+        @include mask;
+        &:hover {
+          opacity: 1;
+          transition: all 0.6s ease;
+        }
+      }
       & .left-cat {
         width: 60%;
         &__top {
           margin: 10px;
           position: relative;
-        }
-        &__top .img {
-          @include img;
-          border-radius: 30px;
+          overflow: hidden;
         }
         &__bottom {
           display: flex;
@@ -445,19 +475,13 @@ a {
             width: 50%;
             margin: 10px;
             position: relative;
-            & .img {
-              @include img;
-              border-radius: 30px;
-            }
+            overflow: hidden;
           }
           &__right {
             width: 50%;
             margin: 10px;
             position: relative;
-            & .img {
-              @include img;
-              border-radius: 30px;
-            }
+            overflow: hidden;
           }
         }
       }
@@ -469,28 +493,21 @@ a {
           &__left {
             width: 50%;
             margin: 10px;
-            & .img {
-              @include img;
-              border-radius: 30px;
-            }
+            position: relative;
+            overflow: hidden;
           }
           &__right {
             width: 50%;
             margin: 10px;
-            & .img {
-              @include img;
-              border-radius: 30px;
-            }
+            position: relative;
+            overflow: hidden;
           }
         }
         &__bottom {
           width: 60%;
           margin: 25px 50px;
           position: relative;
-          & .img {
-            @include img;
-            border-radius: 30px;
-          }
+          overflow: hidden;
         }
       }
     }
@@ -630,10 +647,68 @@ a {
     padding-top: 22px;
   }
 }
+// *****************************************
+// concept
+// *****************************************
+#header {
+  width: 100%;
+  min-width: 1020px;
+  padding: 100px 0 100px;
+  background: url(../images/concept_top.jpg) top center no-repeat/cover;
+  border-bottom: 10px solid $sub_color;
+  border-left: 15px solid $accent_color;
+  & .back_index {
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+  }
+  & h1 {
+    text-indent: -999px;
+    width: 150px;
+    height: 150px;
+    background: url(../images/logo.png) 0 0 no-repeat/contain;
+  }
+}
+#gnav {
+  width: 100%;
+  margin: 30px auto 60px;
+  & ul {
+    display: flex;
+    justify-content: center;
+  }
+  & .here {
+  border-bottom: 1px solid #fff;
+  }
+  & ul li {
+    width: 100px;
+    height: 60px;
+    text-align: center;
+    margin-right: 10px;
+    &:nth-child(7) {
+      width: 50px;
+    }
+    &:nth-child(8) {
+      width: 50px;
+    }
+    & .en {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.18em;
+    }
+    & .ja {
+      margin: 10px auto 0;
+      font-size: 1rem;
+      letter-spacing: 0.24em;
+      display: block;
+    }
+  }
+  & ul li a {
+    padding: 10px;
+    color: #fff;
+  }
+}
 
-// *****************************************
-// news
-// *****************************************
 // *****************************************
 // cafe
 // *****************************************

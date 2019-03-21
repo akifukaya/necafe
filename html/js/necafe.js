@@ -9,6 +9,7 @@ $(function() {
     {src: 'images/slide05.png'}
     ],
     delay: 8000,
+    cover: true,
     timer: false,
     overlay: 'images/02.png',
     animation: 'kenburns',
