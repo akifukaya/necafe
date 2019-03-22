@@ -76,7 +76,7 @@ a {
 // *****************************************
 // top-header
 // *****************************************
-#page_index #header_index {
+#page_index .header_index {
   background-color: $base_color;
   height: 100vh;
   position: static;
@@ -257,7 +257,7 @@ a {
   background-color: $base_color;
 }
 .contents {
-  padding: 80px 0 0 ;
+  padding: 80px 0 0;
   margin: 0 auto;
   font-size: 1.4rem;
   line-height: 1.8;
@@ -650,7 +650,7 @@ a {
 // *****************************************
 // concept
 // *****************************************
-#header {
+.header_other {
   width: 100%;
   min-width: 1020px;
   padding: 100px 0 100px;
@@ -708,7 +708,45 @@ a {
     color: #fff;
   }
 }
-
+#concept {
+  position: relative;
+  @include box;
+  margin: 0 auto 80px;
+  & h2 {
+    width: 150px;
+    @include bl;
+  }
+}
+.concept-message {
+  width: 500px;
+  margin: 20px auto;
+}
+.message {
+  width: 100%;
+  margin: 0 auto;
+  & ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    & li {
+      width: 40%;
+      display: flex;
+      margin: 50px 30px;
+      & img {
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        object-fit: cover;
+        border: 3px solid $sub_color;
+      }
+      & .text {
+        width: 150px;
+        height: 30px;
+        margin-left: 10px;
+      }
+    }
+  }
+}
 // *****************************************
 // cafe
 // *****************************************

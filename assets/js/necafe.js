@@ -63,6 +63,7 @@ $(window).on('load scroll', function() {
 });
 // cat'sスクロールで順番にフェードイン
 $(document).ready(function() {
+    if ($('.cat-area__box__img').length) {
     var EffectTime = 500;
     var DelayTime = 500;
     $('.cat-area__box__img img').css({'opacity': 0});
@@ -75,4 +76,5 @@ $(document).ready(function() {
             });
         }
     });
+}
 });
