@@ -44,6 +44,13 @@ $accent_color: #af5e62;
   margin: 0;
   border-radius: 30px;
 }
+@mixin head {
+  width: 100%;
+  min-width: 1020px;
+  padding: 100px 0 100px;
+  border-bottom: 10px solid $sub_color;
+  border-left: 15px solid $accent_color;
+}
 
 html {
   box-sizing: border-box;
@@ -90,7 +97,6 @@ a {
 
 .left-block {
   height: 100vh;
-
   &__navarea {
     background-color: $sub_color;
     width: 190px;
@@ -102,7 +108,6 @@ a {
     border-left: 15px solid $accent_color;
     border-bottom-right-radius: 50px;
   }
-
   &__logo {
     width: 100px;
     min-height: 0;
@@ -118,7 +123,6 @@ a {
   &__logo .img {
     @include img;
   }
-
   &__nav {
     width: 100%;
     min-height: 0;
@@ -139,9 +143,7 @@ a {
     line-height: 1.0;
     display: block;
     cursor: pointer;
-    &:hover {
-      color: $accent_color;
-    }
+    position: relative;
   }
   &__nav .en {
     @include font;
@@ -173,11 +175,27 @@ a {
   &__sns a {
     color: #fff;
   }
-  &__sns a:hover {
-    color: $accent_color;
-  }
 }
-
+.left-block__nav li a,
+.left-block__nav li a:after,
+.left-block__nav li a:before {
+  transition: all .5s;
+}
+.left-block__nav li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background-color: #fff;
+  height: 1px;
+}
+.left-block__nav li a:hover:after {
+  width: 60%;
+}
 .slider-wrap {
   width: calc(100% - 240px);
   height: calc(100vh - 100px);
@@ -298,22 +316,22 @@ a {
     margin: 0 0 10px 0;
     border-bottom: dotted 0.5px #ddd;
   }
-  & .news-more {
-    width: 100px;
-    background-color: $accent_color;
-    border-radius: 50px;
-    margin: 30px auto 10px;
-    position: relative;
-    & p {
-      text-align: center;
-    }
-    & a {
-      display: block;
-      color: #fff;
-    }
+}
+// 猫リンク共通（cat'sエリア以外）
+.more {
+  width: 100px;
+  background-color: $accent_color;
+  border-radius: 50px;
+  margin: 30px auto 10px;
+  position: relative;
+  & p {
+    text-align: center;
+  }
+  & a {
+    display: block;
+    color: #fff;
   }
 }
-// moreボタン共通(cat's以外)
 .btn {
       position: relative;
       transform: translateZ(0);
@@ -360,19 +378,6 @@ a {
       margin: 80px 60px;
       color: #fff;
     }
-    & .cafe-more {
-      width: 100px;
-      background-color: $accent_color;
-      border-radius: 50px;
-      margin: 30px auto 10px;
-      & p {
-        text-align: center;
-      }
-      & a {
-        color: #fff;
-        display: block;
-      }
-    }
   }
    &__right {
     width: 60%;
@@ -384,7 +389,7 @@ a {
       @include img;
       border-radius: 50px;
     }
-   }
+  }
 }
 // cafe,catsitter共通エフェクトここから↓
 .ef {
@@ -575,19 +580,6 @@ a {
       margin: 80px 60px;
       color: #fff;
     }
-    & .sitter-more {
-      width: 100px;
-      background-color: $accent_color;
-      border-radius: 50px;
-      margin: 30px auto 10px;
-      & p {
-        text-align: center;
-      }
-      & a {
-        color: #fff;
-        display: block;
-      }
-    }
   }
    &__right {
     width: 60%;
@@ -650,19 +642,15 @@ a {
 // *****************************************
 // concept
 // *****************************************
-.header_other {
-  width: 100%;
-  min-width: 1020px;
-  padding: 100px 0 100px;
+.header_concept {
+  @include head;
   background: url(../images/concept_top.jpg) top center no-repeat/cover;
-  border-bottom: 10px solid $sub_color;
-  border-left: 15px solid $accent_color;
-  & .back_index {
-    width: 150px;
-    height: 150px;
-    display: block;
-    margin: 0 auto;
-  }
+}
+.back_index {
+  width: 150px;
+  height: 150px;
+  display: block;
+  margin: 0 auto;
   & h1 {
     text-indent: -999px;
     width: 150px;
@@ -677,11 +665,8 @@ a {
     display: flex;
     justify-content: center;
   }
-  & .here {
-  border-bottom: 1px solid #fff;
-  }
   & ul li {
-    width: 100px;
+    width: 110px;
     height: 60px;
     text-align: center;
     margin-right: 10px;
@@ -706,7 +691,32 @@ a {
   & ul li a {
     padding: 10px;
     color: #fff;
+    display: block;
+    position: relative;
   }
+}
+#gnav .here a:after {
+  width: 100%;
+}
+#gnav ul li a,
+#gnav ul li a:after,
+#gnav ul li a:before {
+  transition: all .5s;
+}
+#gnav ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background-color: #fff;
+  height: 1px;
+}
+#gnav ul li a:hover:after {
+  width: 100%;
 }
 #concept {
   position: relative;
@@ -747,12 +757,48 @@ a {
     }
   }
 }
+.jyouto_text {
+  width: 500px;
+  margin: 0 auto;
+  & li {
+    list-style-type: disc;
+  }
+}
+// *****************************************
+// news
+// *****************************************
+.header_news {
+  @include head;
+  background: url(../images/head01.jpg) bottom center no-repeat/cover;
+}
 // *****************************************
 // cafe
 // *****************************************
+.header_cafe {
+  @include head;
+  background: url(../images/head02.jpg) top center no-repeat/cover;
+}
+// *****************************************
+// shop info
+// *****************************************
+.header_info {
+  @include head;
+  background: url(../images/head03.jpg) top center no-repeat/cover;
+}
 // *****************************************
 // contact
 // *****************************************
+.header_contact {
+  @include head;
+  background: url(../images/head04.jpg) bottom center no-repeat/cover;
+}
+// *****************************************
+// catsitter service
+// *****************************************
+.header_service {
+  @include head;
+  background: url(../images/head05.jpg) bottom center no-repeat/cover;
+}
 // *****************************************
 // footer
 // *****************************************
