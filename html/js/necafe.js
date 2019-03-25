@@ -78,3 +78,7 @@ $(document).ready(function() {
     });
 }
 });
+// 他ページの見出しフェードイン
+$(function() {
+    $('#contents_wrap h2').hide().fadeIn('slow');
+});

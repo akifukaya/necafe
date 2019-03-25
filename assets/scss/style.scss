@@ -81,6 +81,66 @@ a {
   overflow: hidden;
 }
 // *****************************************
+// 各ページ共通
+// *****************************************
+// 猫リンク共通（cat'sエリア以外）
+.more {
+  width: 100px;
+  background-color: $accent_color;
+  border-radius: 50px;
+  margin: 30px auto 10px;
+  position: relative;
+  & p {
+    text-align: center;
+  }
+  & a {
+    display: block;
+    color: #fff;
+  }
+}
+.btn {
+      position: relative;
+      transform: translateZ(0);
+      box-shadow: 0 0 1px rgba(0,0,0,0);
+      &:before {
+        pointer-events: none;
+        position: absolute;
+        z-index: -1;
+        content: '';
+        border-style: solid;
+        transition-duration: .5s;
+        left: 25px;
+        border-width: 15px 25px 10px 25px;
+        border-color: transparent $accent_color $accent_color $accent_color;
+        transition-property: top;
+      }
+      &:hover:before {
+        top: -12px;
+      }
+}
+// ここまで
+// pegetop
+#page_top {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  right: 10px;
+  bottom: -50px;
+  background: url("../images/btn.png") 0 0 no-repeat/contain;
+  opacity: 0.6;
+  & a {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    padding-top: 22px;
+  }
+}
+// ここまで
+
+// *****************************************
 // top-header
 // *****************************************
 #page_index .header_index {
@@ -94,7 +154,6 @@ a {
     display: flex;
   }
 }
-
 .left-block {
   height: 100vh;
   &__navarea {
@@ -235,6 +294,7 @@ a {
     margin-top: 50px;
   }
 }
+// スクロールボタン
 .scroll {
   text-align: center;
   margin: 0;
@@ -267,6 +327,7 @@ a {
     display: none;
   }
 }
+// ここまで
 // *****************************************
 // top
 // *****************************************
@@ -317,42 +378,6 @@ a {
     border-bottom: dotted 0.5px #ddd;
   }
 }
-// 猫リンク共通（cat'sエリア以外）
-.more {
-  width: 100px;
-  background-color: $accent_color;
-  border-radius: 50px;
-  margin: 30px auto 10px;
-  position: relative;
-  & p {
-    text-align: center;
-  }
-  & a {
-    display: block;
-    color: #fff;
-  }
-}
-.btn {
-      position: relative;
-      transform: translateZ(0);
-      box-shadow: 0 0 1px rgba(0,0,0,0);
-      &:before {
-        pointer-events: none;
-        position: absolute;
-        z-index: -1;
-        content: '';
-        border-style: solid;
-        transition-duration: .5s;
-        left: 25px;
-        border-width: 15px 25px 10px 25px;
-        border-color: transparent $accent_color $accent_color $accent_color;
-        transition-property: top;
-      }
-      &:hover:before {
-        top: -12px;
-      }
-}
-// ここまで
 .cafe-area {
   @include box;
   height: 600px;
@@ -621,30 +646,13 @@ a {
     }
   }
 }
-#page_top {
-  width: 50px;
-  height: 50px;
-  position: fixed;
-  right: 10px;
-  bottom: -50px;
-  background: url("../images/btn.png") 0 0 no-repeat/contain;
-  opacity: 0.6;
-  & a {
-    position: relative;
-    display: block;
-    width: 50px;
-    height: 50px;
-    color: #fff;
-    text-align: center;
-    padding-top: 22px;
-  }
-}
+
 // *****************************************
 // concept
 // *****************************************
 .header_concept {
   @include head;
-  background: url(../images/concept_top.jpg) top center no-repeat/cover;
+  background: url(../images/head03.jpg) top center no-repeat/cover;
 }
 .back_index {
   width: 150px;
@@ -718,7 +726,7 @@ a {
 #gnav ul li a:hover:after {
   width: 100%;
 }
-#concept {
+#contents_wrap {
   position: relative;
   @include box;
   margin: 0 auto 80px;
@@ -771,6 +779,33 @@ a {
   @include head;
   background: url(../images/head01.jpg) bottom center no-repeat/cover;
 }
+.news {
+  width: 100%;
+  padding: 30px 50px 100px;
+  margin: 0 auto;
+  border-bottom: 1px dotted $base_color;
+}
+.pagenav {
+  text-align: center;
+  margin: 20px 0;
+  & .current {
+    padding: 5px 6px 4px 7px;
+    margin-right: 5px;
+    border: 1px solid &sub_color;
+    background-color: $sub_color;
+    color: #fff;
+  }
+  & a {
+    padding: 5px 6px 4px 7px;
+    margin-right: 5px;
+    border: 1px solid $sub_color;
+    color: $sub_color;
+    &:hover {
+      background-color: $sub_color;
+      color: #fff;
+    }
+  }
+}
 // *****************************************
 // cafe
 // *****************************************
@@ -778,19 +813,79 @@ a {
   @include head;
   background: url(../images/head02.jpg) top center no-repeat/cover;
 }
-// *****************************************
-// shop info
-// *****************************************
-.header_info {
-  @include head;
-  background: url(../images/head03.jpg) top center no-repeat/cover;
-}
+
 // *****************************************
 // contact
 // *****************************************
 .header_contact {
   @include head;
   background: url(../images/head04.jpg) bottom center no-repeat/cover;
+}
+#contact_block {
+  width: 600px;
+  margin: 0 auto;
+  & p {
+    margin-top: 30px;
+  }
+  & form {
+    margin: 50px 0;
+    & p {
+      margin: 30px 0;
+      font-weight: bold;
+      & .red {
+        font-size: 0.5em;
+        color: $accent_color;
+      }
+    }
+    & input {
+      margin: 0 0 30px 30px;
+    }
+    & textarea {
+      margin: 20px 0 30px 30px;
+      width: 400px;
+      height: 80px;
+      outline: none;
+      border-style: none;
+      box-shadow: 5px 5px $base_color, -5px -5px $base_color;
+    }
+    & input[required] {
+      width: 400px;
+      outline: none;
+      border-style: none;
+      border-bottom: 3px dotted $base_color;
+    }
+    & input[required]:focus {
+    }
+  }
+}
+input[type="submit"] {
+  width: 100px;
+  background-color: $accent_color;
+  border-radius: 50px;
+  position: relative;
+  color: #fff;
+  border-style: none;
+}
+.btn_s {
+      width: 100px;
+      position: relative;
+      transform: translateZ(0);
+      box-shadow: 0 0 1px rgba(0,0,0,0);
+      &:before {
+        pointer-events: none;
+        position: absolute;
+        z-index: -1;
+        content: '';
+        border-style: solid;
+        transition-duration: .5s;
+        left: 55px;
+        border-width: 15px 25px 10px 25px;
+        border-color: transparent $accent_color $accent_color $accent_color;
+        transition-property: top;
+      }
+      &:hover:before {
+        top: -12px;
+      }
 }
 // *****************************************
 // catsitter service
