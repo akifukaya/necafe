@@ -813,7 +813,75 @@ a {
   @include head;
   background: url(../images/head02.jpg) top center no-repeat/cover;
 }
-
+.cafe_block {
+  width: 600px;
+  margin: 0 auto;
+  padding: 30px 0;
+  position: relative;
+  & p:first-of-type {
+    text-align: center;
+    padding: 0;
+  }
+  & h3 {
+    width: 400px;
+    vertical-align: middle;
+  }
+  & h3:before {
+    content: '';
+    background: url(../images/news.png) 0 0 no-repeat/contain;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+  }
+  & h4, & p {
+    padding-left: 40px;
+  }
+  & table {
+    margin-left: 40px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    border: 3px solid $base_color;
+  }
+  & th, & td {
+    border-bottom: 3px solid $base_color;
+    padding: 20px 40px;
+  }
+  & table tbody tr:last-child th,
+  & table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  & th + th, td {
+    border-left: 3px solid $base_color;
+  }
+}
+.img01 img {
+  position: absolute;
+  top: 100px;
+  right: 0px;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  border: 3px solid $sub_color;
+}
+.img02 img {
+  position: absolute;
+  top: 200px;
+  right: -168px;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  border: 3px solid $sub_color;
+}
+.img03 img {
+  position: absolute;
+  top: 200px;
+  right: -168px;
+  width: 180px;
+  height: 180px;
+  border-radius: 90px;
+  border: 3px solid $sub_color;
+}
 // *****************************************
 // contact
 // *****************************************
