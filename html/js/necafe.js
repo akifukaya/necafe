@@ -82,3 +82,16 @@ $(document).ready(function() {
 $(function() {
     $('#contents_wrap h2').hide().fadeIn('slow');
 });
+// cafeページ画像フェードイン
+$(function() {
+    $(window).scroll(function() {
+        $('.cafe-fadein').each(function() {
+            var elemPos = $(this).offset().top;
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+            if(scroll > elemPos - windowHeight + 200) {
+                $(this).addClass('scrollin');
+            }
+        });
+    });
+});

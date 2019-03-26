@@ -737,7 +737,7 @@ a {
 }
 .concept-message {
   width: 500px;
-  margin: 20px auto;
+  margin: 40px auto;
 }
 .message {
   width: 100%;
@@ -746,6 +746,7 @@ a {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 0;
     & li {
       width: 40%;
       display: flex;
@@ -781,9 +782,16 @@ a {
 }
 .news {
   width: 100%;
-  padding: 30px 50px 100px;
+  padding: 40px 50px 100px;
   margin: 0 auto;
   border-bottom: 1px dotted $base_color;
+  & h3, & span, & p {
+    margin-left: 40px;
+  }
+  & img {
+    @include img;
+    border-radius: 30px;
+  }
 }
 .pagenav {
   text-align: center;
@@ -816,7 +824,7 @@ a {
 .cafe_block {
   width: 600px;
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 26px 0;
   position: relative;
   & p:first-of-type {
     text-align: center;
@@ -868,19 +876,111 @@ a {
   position: absolute;
   top: 200px;
   right: -168px;
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
   border: 3px solid $sub_color;
+  object-fit: cover;
 }
 .img03 img {
   position: absolute;
-  top: 200px;
-  right: -168px;
+  top: 420px;
+  right: -33px;
   width: 180px;
   height: 180px;
   border-radius: 90px;
   border: 3px solid $sub_color;
+}
+.img04 img {
+  position: absolute;
+  top: 567px;
+  right: -105px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  border: 3px solid $sub_color;
+  object-fit: cover;
+}
+.img05 img {
+  position: absolute;
+  bottom: 0;
+  right: -105px;
+  width: 250px;
+  height: 250px;
+  border-radius: 125px;
+  border: 3px solid $sub_color;
+}
+.img06 img {
+  position: absolute;
+  top: 65px;
+  right: -20px;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  border: 3px solid $sub_color;
+  object-fit: cover;
+}
+.img07 img {
+  position: absolute;
+  bottom: 95px;
+  right: -168px;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  border: 3px solid $sub_color;
+  object-fit: cover;
+}
+.img08 img {
+  position: absolute;
+  bottom: 40px;
+  right: 5px;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  border: 3px solid $sub_color;
+  object-fit: cover;
+}
+.cafe-fadein {
+  opacity: 0.1;
+  transform: translate(0, 50px);
+  transition: all 500ms;
+}
+.cafe-fadein.scrollin {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+// cat'sエリア
+.cat-message {
+  width: 500px;
+  margin: 40px auto 0;
+  text-align: center;
+}
+.cat-block {
+  width: 100%;
+  margin: 0 auto;
+  & ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    & li {
+      width: 40%;
+      display: flex;
+      margin: 50px 30px;
+      & img {
+        width: 200px;
+        height: 200px;
+        border-radius: 30px;
+        object-fit: cover;
+        border: 3px solid $sub_color;
+      }
+      & .c_text {
+        width: 150px;
+        height: 30px;
+        margin-left: 15px;
+      }
+    }
+  }
 }
 // *****************************************
 // contact
@@ -893,7 +993,7 @@ a {
   width: 600px;
   margin: 0 auto;
   & p {
-    margin-top: 30px;
+    margin-top: 40px;
   }
   & form {
     margin: 50px 0;
@@ -956,11 +1056,221 @@ input[type="submit"] {
       }
 }
 // *****************************************
+// contact_conf
+// *****************************************
+.header_contact_conf {
+  background: url(../images/head04.jpg) bottom center no-repeat/cover;
+  width: 100%;
+  min-width: 1020px;
+  padding: 10px 0 10px;
+  border-bottom: 10px solid $sub_color;
+  border-left: 15px solid $accent_color;
+}
+.back_index_conf {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+  & h1 {
+    text-indent: -999px;
+    width: 100px;
+    height: 100px;
+    background: url(../images/logo.png) 0 0 no-repeat/contain;
+    margin: 0;
+  }
+}
+#gnav_conf {
+  width: 100%;
+  margin: 0 auto;
+  & ul {
+    display: flex;
+    justify-content: center;
+  }
+  & ul li {
+    width: 110px;
+    height: 60px;
+    text-align: center;
+    margin-right: 10px;
+    &:nth-child(7) {
+      width: 50px;
+    }
+    &:nth-child(8) {
+      width: 50px;
+    }
+    & .en {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.18em;
+    }
+    & .ja {
+      margin: 10px auto 0;
+      font-size: 1rem;
+      letter-spacing: 0.24em;
+      display: block;
+    }
+  }
+  & ul li a {
+    padding: 10px;
+    color: #fff;
+    display: block;
+    position: relative;
+  }
+}
+#gnav_conf .here a:after {
+  width: 100%;
+}
+#gnav_conf ul li a,
+#gnav_conf ul li a:after,
+#gnav_conf ul li a:before {
+  transition: all .5s;
+}
+#gnav_conf ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background-color: #fff;
+  height: 1px;
+}
+#gnav_conf ul li a:hover:after {
+  width: 100%;
+}
+.conf_text {
+  display: block;
+  padding: 0 0 20px 40px;
+  width: 500px;
+  border-bottom: 3px dotted $base_color;
+}
+.btn_c {
+      width: 100px;
+      position: relative;
+      transform: translateZ(0);
+      box-shadow: 0 0 1px rgba(0,0,0,0);
+      display: inline;
+      &:before {
+        pointer-events: none;
+        position: absolute;
+        z-index: -1;
+        content: '';
+        border-style: solid;
+        transition-duration: .5s;
+        left: 55px;
+        border-width: 15px 25px 10px 25px;
+        border-color: transparent $accent_color $accent_color $accent_color;
+        transition-property: top;
+      }
+      &:hover:before {
+        top: -12px;
+      }
+}
+input.back {
+  width: 100px;
+  background-color: #555;
+  border-radius: 50px;
+  position: relative;
+  color: #fff;
+  border-style: none;
+}
+.btn_b {
+      width: 100px;
+      position: relative;
+      transform: translateZ(0);
+      box-shadow: 0 0 1px rgba(0,0,0,0);
+      display: inline;
+      &:before {
+        pointer-events: none;
+        position: absolute;
+        z-index: -1;
+        content: '';
+        border-style: solid;
+        transition-duration: .5s;
+        left: 55px;
+        border-width: 15px 25px 10px 25px;
+        border-color: transparent #555 #555 #555;
+        transition-property: top;
+      }
+      &:hover:before {
+        top: -12px;
+      }
+}
+// *****************************************
+// contact_done
+// *****************************************
+// *****************************************
+// contact_error
+// *****************************************
+// *****************************************
 // catsitter service
 // *****************************************
 .header_service {
   @include head;
   background: url(../images/head05.jpg) bottom center no-repeat/cover;
+}
+.sitter_block {
+  width: 800px;
+  margin: 0 auto;
+  padding: 10px 40px 40px;
+  &__box {
+    width: 100%;
+    margin: 20px 0;
+    position: relative;
+    & h3 {
+      width: 500px;
+      vertical-align: middle;
+      margin: 30px 0 0;
+    }
+    & h3:before {
+    content: '';
+    background: url(../images/news.png) 0 0 no-repeat/contain;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    }
+    & h4 {
+      padding-left: 40px;
+      margin: 0;
+    }
+    & p {
+      padding-left: 40px;
+      margin: 10px 0 30px;
+    }
+  }
+}
+.img09 img {
+  position: absolute;
+  top: 190px;
+  right: 10px;
+  width: 300px;
+  height: 200px;
+  border-radius: 30px;
+  object-fit: cover;
+}
+.servicenav li {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+.usenav {
+  width: 100%;
+  display: flex;
+  margin-bottom: 50px;
+  & li {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    & img {
+      @include img;
+      padding-top: 5px;
+    }
+  }
+  & li:nth-child(even) {
+    text-align: center;
+    width: 80px;
+    padding-top: 50px;
+  }
 }
 // *****************************************
 // footer
@@ -991,7 +1301,6 @@ footer {
   &__logo img {
     @include img;
   }
-
   &__right {
     padding: 0 0 0 45px;
     &__nav {
@@ -1021,7 +1330,6 @@ footer {
         }
       }
     }
-
     &__other {
       width: 530px;
       display: flex;
